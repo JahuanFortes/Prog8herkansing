@@ -1,3 +1,4 @@
+//#region imports
 import "./style.css";
 import {
   HandLandmarker,
@@ -18,6 +19,7 @@ let handLandmarker = undefined;
 let webcamRunning = false;
 let results = undefined;
 let image = document.querySelector("#myimage");
+//#endregion imports
 
 addButton.addEventListener("click", addToLocalStorage);
 downloadButton.addEventListener("click", downloadJSON);
@@ -25,6 +27,8 @@ downloadButton.addEventListener("click", downloadJSON);
 /********************************************************************
 // CREATE THE POSE DETECTOR
 ********************************************************************/
+
+//#region PoseDetector
 const createHandLandmarker = async () => {
   const vision = await FilesetResolver.forVisionTasks(
     "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
@@ -42,9 +46,13 @@ const createHandLandmarker = async () => {
   enableWebcamButton.addEventListener("click", (e) => enableCam(e));
   logButton.addEventListener("click", (e) => logAllHands(e));
 };
+//#endregion PoseDetector
+
 /********************************************************************
 // START THE WEBCAM
 ********************************************************************/
+
+//#region Start Webcam
 async function enableCam() {
   webcamRunning = true;
   try {
@@ -66,6 +74,7 @@ async function enableCam() {
     console.error("Error accessing webcam:", error);
   }
 }
+//#endregion Start Webcam
 
 /********************************************************************
 // START PREDICTIONS    
