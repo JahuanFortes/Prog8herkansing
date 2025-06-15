@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MediaPipe Handpose</title>
+    <title>YouTube Hand Control</title>
     <link rel="stylesheet" href="./style.css" />
     <script defer type="module" src="./src/main.js"></script>
     <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
@@ -11,8 +11,16 @@
 
   <body>
     <section>
-      <h1>Handpose detection</h1>
-      <button id="webcamButton">STARTWEBCAM</button>
+      <h1>YouTube Hand Control</h1>
+      <div class="video-input">
+        <input
+          type="text"
+          id="videoUrl"
+          placeholder="Enter YouTube URL or Video ID"
+        />
+        <button id="loadVideo">Load Video</button>
+      </div>
+      <button id="webcamButton">START WEBCAM</button>
       <button id="logButton">LOG DATA</button>
 
       <!-- <button id="trainModelBtn">TRAINMODEL</button> -->
@@ -31,7 +39,29 @@
             id="output_canvas"
             style="position: absolute; left: 0px; top: 0px"
           ></canvas>
-          <div id="myimage"></div>
+          <div id="prediction"></div>
+        </div>
+      </div>
+
+      <div class="youtube-container">
+        <div id="player"></div>
+        <div class="controls-info">
+          <h3>Hand Controls:</h3>
+          <ul>
+            <li>👆 UP: Play</li>
+            <li>👇 DOWN: Pause</li>
+            <li>👈 LEFT: Rewind 10s</li>
+            <li>👉 RIGHT: Fast Forward 10s</li>
+          </ul>
+          <div class="video-info">
+            <h4>How to use:</h4>
+            <ol>
+              <li>Enter a YouTube URL or Video ID</li>
+              <li>Click "Load Video"</li>
+              <li>Click "START WEBCAM"</li>
+              <li>Use hand gestures to control the video</li>
+            </ol>
+          </div>
         </div>
       </div>
     </section>
