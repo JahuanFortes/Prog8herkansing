@@ -49,6 +49,7 @@ const MAX_CONFIDENCE = 95; // Cap maximum confidence
 const nn = ml5.neuralNetwork({ task: "classification", debug: true });
 ml5.setBackend("webgl");
 
+// loads model
 const modelDetails = {
   model: "../training-data/model/model.json",
   metadata: "../training-data/model/model_meta.json",
